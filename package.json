@@ -1,11 +1,11 @@
 {
-  "name": "component-library",
-  "version": "0.0.1",
-  "description": "Internat Component Library",
+  "name": "@exosdata/component-library",
+  "version": "0.0.2",
+  "description": "Internal Component Library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "scripts": {
-    "rollup": "rollup -c"
+    "build": "rollup -c"
   },
   "files": [
     "dist"
@@ -15,6 +15,7 @@
   "author": "ExosData",
   "license": "ISC",
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@rollup/plugin-commonjs": "^25.0.2",
     "@rollup/plugin-node-resolve": "^15.1.0",
     "@rollup/plugin-typescript": "^11.1.2",
@@ -22,6 +23,10 @@
     "react": "^18.2.0",
     "rollup": "^3.26.0",
     "rollup-plugin-dts": "^5.3.0",
+    "rollup-plugin-postcss": "^4.0.2",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "clsx": "^1.2.1"
   }
 }
