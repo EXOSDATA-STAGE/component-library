@@ -4,6 +4,7 @@
   "description": "Internal Component Library",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
@@ -13,7 +14,6 @@
   "files": [
     "dist"
   ],
-  "types": "dist/index.d.ts",
   "keywords": [],
   "author": "ExosData",
   "license": "ISC",
