@@ -28,10 +28,15 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   children?: React.ReactNode;
+  leftIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, children, ...props }, ref) => {
+  (
+    { className, variant, size, children, leftIcon, rightIcon, ...props },
+    ref
+  ) => {
     return (
       <button
         ref={ref}
@@ -44,7 +49,27 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {...props}
       >
+        {leftIcon && (
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+            }}
+          >
+            {leftIcon}
+          </span>
+        )}
         {children}
+        {rightIcon && (
+          <span
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+            }}
+          >
+            {rightIcon}
+          </span>
+        )}
       </button>
     );
   }

@@ -8,6 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
+    "publish": "pnpm test && pnpm build && changesets version && changesets publish && pnpm publish",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
