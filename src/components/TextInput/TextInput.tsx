@@ -1,22 +1,40 @@
-import React, { forwardRef } from "react";
-import "./Input.css";
+import React, { forwardRef, useId } from "react";
+import "./TextInput.css";
 import { cn } from "@/lib/utils";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
-  children?: React.ReactNode;
+  icon?: React.ReactNode;
   label?: string;
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ label, className, children, ...props }, ref) => {
+const TextInput = forwardRef<HTMLInputElement, InputProps>(
+  ({ label, className, ...props }, ref) => {
+    const id = useId();
     return (
-      <input ref={ref} className={cn("", className)} {...props}>
-        {children}
-        {label}
-      </input>
+      <div className="input-container">
+        <div
+          style={{
+            marginBottom: "3rem",
+          }}
+        >
+          <label htmlFor={id} className="label">
+            {label}
+          </label>
+          <input
+            id={id}
+            ref={ref}
+            type="text"
+            {...props}
+            className={cn(
+              "border-form-stroke text-body-color placeholder-body-color border-primary root-input",
+              className
+            )}
+          />
+        </div>
+      </div>
     );
   }
 );
 
-export default Input;
+export default TextInput;
