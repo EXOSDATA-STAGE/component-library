@@ -1,3 +1,83 @@
-.bigger-size {
-  font-size: 18px;
+.btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.375rem;
+  border-width: 1px;
+  border-color: transparent;
+  font-weight: 600;
+  color: white;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.btn-primary {
+  background-color: #4f46e5;
+}
+.btn-primary:hover {
+  background-color: #4338ca;
+}
+.btn-primary:focus {
+  --ring-opacity: 1;
+  --ring-color: rgb(99 102 241 / var(--ring-opacity));
+  --ring-offset-width: 2px;
+  --ring-offset-shadow: 0 0 0 var(--ring-offset-width) var(--ring-offset-color);
+  --ring-shadow: 0 0 0 calc(2px + var(--ring-offset-width)) var(--ring-color);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  box-shadow: var(--ring-offset-shadow), var(--ring-shadow),
+    var(--ring-shadow, 0 0 #0000);
+}
+
+.btn-secondary {
+  background-color: white;
+  color: #111827;
+  border: 1px solid #111827;
+}
+.btn-secondary:hover {
+  background-color: #f9fafb;
+}
+
+.btn-xs {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  border-radius: 0.25rem;
+}
+
+.btn-sm {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.btn-md {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.btn-lg {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+.btn-xl {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
 }
