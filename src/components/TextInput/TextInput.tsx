@@ -140,7 +140,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
               </span>
             )}
           </div>
-          <p className="errorMessage">{errorMsg}</p>
+          {error && <p className="errorMessage">{errorMsg}</p>}
         </div>
       </div>
     );
