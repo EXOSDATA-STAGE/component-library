@@ -25,6 +25,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
       rightIcon,
       placeholder,
       className,
+      required,
       error,
       errorMsg,
       ...props
@@ -40,7 +41,9 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
       placeholder = placeholder ? placeholder : "info@yourmail.com";
       label = "Email";
 
-      leftIcon = (
+      leftIcon = leftIcon ? (
+        leftIcon
+      ) : (
         <svg
           width="20"
           height="20"
@@ -66,7 +69,9 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
       );
     }
     if (error) {
-      rightIcon = (
+      rightIcon = rightIcon ? (
+        rightIcon
+      ) : (
         <svg
           width="20"
           height="20"
@@ -107,7 +112,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
           }}
         >
           <label htmlFor={id} className="label">
-            {label}
+            {label} {required && <span style={{ color: "red" }}>*</span>}
           </label>
           <div style={{ position: "relative" }}>
             <input
@@ -118,18 +123,17 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
               type={type || "text"}
               {...props}
               className={cn(
+                "text-body-color placeholder-body-color border-primary",
                 leftIcon
-                  ? "with-left-icon border-form-stroke  text-body-color placeholder-body-color border-primary"
-                  : "border-form-stroke text-body-color placeholder-body-color border-primary root-input",
+                  ? "with-left-icon border-form-stroke "
+                  : "border-form-stroke root-input",
                 rightIcon
-                  ? "with-right-icon border-form-stroke  text-body-color placeholder-body-color border-primary"
-                  : "border-form-stroke text-body-color placeholder-body-color border-primary root-input",
+                  ? "with-right-icon border-form-stroke "
+                  : "border-form-stroke root-input",
                 bothIcons
-                  ? "bothIcons border-form-stroke  text-body-color placeholder-body-color border-primary"
-                  : "border-form-stroke text-body-color placeholder-body-color border-primary root-input",
-                error
-                  ? "errorInput text-body-color placeholder-body-color border-primary"
-                  : "border-form-stroke text-body-color placeholder-body-color border-primary root-input",
+                  ? "bothIcons border-form-stroke "
+                  : "border-form-stroke root-input",
+                error ? "errorInput" : "border-form-stroke root-input",
                 className
               )}
             />

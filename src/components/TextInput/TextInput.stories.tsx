@@ -14,6 +14,8 @@ export const Default: Story = {
   args: {
     label: "Hello",
     placeholder: "Hello",
+    required: true,
+    disabled: true,
   },
 };
 
