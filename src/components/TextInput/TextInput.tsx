@@ -1,6 +1,7 @@
-import React, { forwardRef, useId } from "react";
+import React, { forwardRef, useId, useState } from "react";
 import "./TextInput.css";
 import { cn } from "@/lib/utils";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -19,7 +20,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       label,
-      type,
+      type = "text",
       disabled,
       leftIcon,
       rightIcon,
@@ -37,6 +38,9 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
       bothIcons = true;
     }
     const id = useId();
+    const [isPassword, setIsPassword] = useState(type === "password");
+    const [inputType, setInputType] = useState(type);
+
     if (type === "email") {
       placeholder = placeholder ? placeholder : "info@yourmail.com";
       label = "Email";
@@ -101,6 +105,23 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
         </svg>
       );
     }
+    if (type === "password") {
+      rightIcon = isPassword ? (
+        <AiOutlineEye
+          onClick={() => {
+            setIsPassword((prev) => !prev);
+            setInputType("text");
+          }}
+        />
+      ) : (
+        <AiOutlineEyeInvisible
+          onClick={() => {
+            setIsPassword((prev) => !prev);
+            setInputType("password");
+          }}
+        />
+      );
+    }
     if (leftIcon && rightIcon) {
       bothIcons = true;
     }
@@ -120,7 +141,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
               ref={ref}
               disabled={disabled}
               placeholder={placeholder}
-              type={type || "text"}
+              type={inputType}
               {...props}
               className={cn(
                 "text-body-color placeholder-body-color border-primary",

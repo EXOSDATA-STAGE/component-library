@@ -156,3 +156,10 @@ export const ErrorInput: Story = {
     errorMsg: "Invalid Email address",
   },
 };
+export const PasswordInput: Story = {
+  args: {
+    label: "Password",
+    placeholder: "Password",
+    type: "password",
+  },
+};
