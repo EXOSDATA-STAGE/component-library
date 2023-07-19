@@ -1,20 +1,18 @@
 import React, { forwardRef, useId, useState } from "react";
-import "./TextInput.css";
-import { cn } from "@/lib/utils";
+import "./Input.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { cn } from "@/lib/utils";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode;
-  label?: string;
+  label: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  type?: Type;
+  type?: "text" | "password" | "number" | "email";
   error?: boolean;
   errorMsg?: string;
 }
-
-type Type = "text" | "password" | "number" | "email";
 
 const TextInput = forwardRef<HTMLInputElement, InputProps>(
   (

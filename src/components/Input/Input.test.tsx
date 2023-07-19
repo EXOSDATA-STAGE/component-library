@@ -1,7 +1,7 @@
 import React from "react";
 import { checkAccessibility } from "@/lib/tests";
 import { render, screen } from "@testing-library/react";
-import TextInput from "./TextInput";
+import TextInput from "./Input";
 
 describe("TextInput", () => {
   // checkAccessibility([<TextInput label="Hello" />]);
