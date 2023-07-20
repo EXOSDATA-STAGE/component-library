@@ -63,6 +63,7 @@
   left: 1rem;
   top: 55%;
   transform: translateY(-50%);
+  color: rgb(99 115 129);
 }
 .with-right-icon {
   border-radius: 0.375rem;
@@ -87,6 +88,7 @@
   right: -3rem;
   top: 55%;
   transform: translateY(-50%);
+  color: rgb(99 115 129);
 }
 .bothIcons {
   border-radius: 0.375rem;
@@ -115,6 +117,7 @@
   border-color: rgb(220 53 69) !important;
   border-width: 1px;
   border-style: solid;
+  
 }
 .errorMessage {
   font-size: 0.875rem;
