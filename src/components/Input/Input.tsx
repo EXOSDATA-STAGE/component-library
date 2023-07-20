@@ -94,9 +94,7 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
         </div>
       );
     }
-    if (leftIcon && rightIcon) {
-      bothIcons = true;
-    }
+
     return (
       <div className="input-container">
         <div>
