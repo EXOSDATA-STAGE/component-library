@@ -1,17 +1,13 @@
 import React, { forwardRef, useId, useState } from "react";
+import { cva } from "class-variance-authority";
+import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import "./Input.css";
-import {
-  AiOutlineEye,
-  AiOutlineEyeInvisible,
-  AiOutlineMail,
-} from "react-icons/ai";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { BiErrorCircle } from "react-icons/bi";
 import { MdAlternateEmail } from "react-icons/md";
-import { cn } from "@/lib/utils";
-import { cva } from "class-variance-authority";
 
-const buttonVariants = cva("btn", {
+const inputVariants = cva("btn", {
   variants: {
     size: {
       xs: ["input-xs"],
