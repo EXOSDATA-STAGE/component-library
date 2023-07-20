@@ -66,10 +66,10 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
       placeholder = placeholder ? placeholder : "info@yourmail.com";
       label = "Email";
 
-      leftIcon = leftIcon ? leftIcon : <MdAlternateEmail />;
+      leftIcon = leftIcon ? leftIcon : <MdAlternateEmail size={20} />;
     }
     if (error) {
-      rightIcon = <BiErrorCircle color="#DC3545" />;
+      rightIcon = <BiErrorCircle size={20} color="#DC3545" />;
     }
     if (type === "password") {
       rightIcon = isPassword ? (

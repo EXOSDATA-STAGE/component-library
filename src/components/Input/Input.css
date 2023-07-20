@@ -2,6 +2,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   width: 100%;
+  font-family: sans-serif;
 }
 
 @media (min-width: 768px) {
@@ -17,11 +18,11 @@
 
 .label {
   display: block;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 1.5rem;
   font-weight: 500;
   color: rgb(17 24 39);
-  margin-bottom: 0.3rem;
+  margin-bottom: 5px;
 }
 .root-input {
   appearance: none;
@@ -29,9 +30,9 @@
   border-radius: 0.5rem;
   border-width: 1px;
   padding: 12px 16px;
-  outline-style: none;
   width: 100%;
   color: #18181b;
+  border: none;
   font-size: 1rem;
   line-height: 1.5rem;
   transition: border-color cubic-bezier(0.4, 0, 0.2, 1) 300ms;
@@ -40,14 +41,13 @@
 
 .root-input:focus {
   outline: "2px solid transparent";
-  outline-offset: 2px;
   box-shadow: 0 0 0 0px #fff0 0 0 1px #2563eb, 0 0 #000;
 }
 
 .root-input:active,
 .root-input:focus {
-  border-color: rgb(48 86 211);
-  border-width: 2px;
+  outline-color: rgb(48 86 211);
+  outline-width: 2px;
 }
 
 .root-input:disabled {
@@ -93,16 +93,18 @@
   background-color: #f3f4f6;
 }
 .errorInput {
-  border: 1px solid #ef4444;
+  /* border: 1px solid #ef4444; */
+  outline: 1px solid #ef4444;
   color: #7f1d1d;
 }
 .errorInput:focus {
-  border-color: #ef4444;
+  /* border-color: #ef4444; */
+  outline-color: #ef4444;
 }
 
 .errorMessage {
   font-size: 0.875rem;
   line-height: 1.25rem;
-  margin-top: 10px;
+  margin-top: 5px;
   color: rgb(220 53 69);
 }
