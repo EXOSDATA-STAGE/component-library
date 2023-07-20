@@ -63,6 +63,7 @@
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
+  color: rgb(99 115 129);
 }
 
 .rightIcon {
@@ -70,6 +71,7 @@
   top: 50%;
   right: 1rem;
   transform: translateY(-50%);
+  color: rgb(99 115 129);
 }
 
 .leftIcon,
