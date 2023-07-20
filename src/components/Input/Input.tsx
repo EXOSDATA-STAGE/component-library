@@ -6,7 +6,24 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 import { BiErrorCircle } from "react-icons/bi";
+import { MdAlternateEmail } from "react-icons/md";
 import { cn } from "@/lib/utils";
+import { cva } from "class-variance-authority";
+
+const buttonVariants = cva("btn", {
+  variants: {
+    size: {
+      xs: ["input-xs"],
+      sm: ["input-sm"],
+      md: ["input-md"],
+      lg: ["input-lg"],
+      xl: ["input-xl"],
+    },
+  },
+  defaultVariants: {
+    size: "md",
+  },
+});
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -48,10 +65,10 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
       placeholder = placeholder ? placeholder : "info@yourmail.com";
       label = "Email";
 
-      leftIcon = leftIcon ? leftIcon : <AiOutlineMail />;
+      leftIcon = leftIcon ? leftIcon : <MdAlternateEmail />;
     }
     if (error) {
-      rightIcon = rightIcon ? rightIcon : <BiErrorCircle color="#DC3545" />;
+      rightIcon = <BiErrorCircle color="#DC3545" />;
     }
     if (type === "password") {
       rightIcon = isPassword ? (
@@ -106,7 +123,14 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
                 className
               )}
             />
-            {leftIcon && <span className="leftIcon">{leftIcon}</span>}
+            {leftIcon && (
+              <span
+                className="leftIcon"
+                style={error ? { color: "#7f1d1d" } : {}}
+              >
+                {leftIcon}
+              </span>
+            )}
             {rightIcon && (
               <span className={bothIcons ? "bothIconsRight" : "rightIcon"}>
                 {rightIcon}
