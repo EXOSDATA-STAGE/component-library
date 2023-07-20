@@ -1,4 +1,5 @@
 import React, { forwardRef, useId, useState } from "react";
+import "@/styles/globals.css";
 import "./Input.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { cn } from "@/lib/utils";
@@ -105,19 +106,25 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
     }
     if (type === "password") {
       rightIcon = isPassword ? (
-        <AiOutlineEye
+        <div
+          className="password-eye"
           onClick={() => {
             setIsPassword((prev) => !prev);
             setInputType("text");
           }}
-        />
+        >
+          <AiOutlineEye size={20} />
+        </div>
       ) : (
-        <AiOutlineEyeInvisible
+        <div
+          className="password-eye"
           onClick={() => {
             setIsPassword((prev) => !prev);
             setInputType("password");
           }}
-        />
+        >
+          <AiOutlineEyeInvisible size={20} />
+        </div>
       );
     }
     if (leftIcon && rightIcon) {
@@ -125,15 +132,16 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
     }
     return (
       <div className="input-container">
-        <div
-          style={{
-            marginBottom: "3rem",
-          }}
-        >
+        <div>
           <label htmlFor={id} className="label">
             {label} {required && <span style={{ color: "red" }}>*</span>}
           </label>
-          <div style={{ position: "relative" }}>
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+            }}
+          >
             <input
               id={id}
               ref={ref}
@@ -142,26 +150,14 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
               type={inputType}
               {...props}
               className={cn(
-                "text-body-color placeholder-body-color border-primary",
-                leftIcon
-                  ? "with-left-icon border-form-stroke "
-                  : "border-form-stroke root-input",
-                rightIcon
-                  ? "with-right-icon border-form-stroke "
-                  : "border-form-stroke root-input",
-                bothIcons
-                  ? "bothIcons border-form-stroke "
-                  : "border-form-stroke root-input",
-                error ? "errorInput" : "border-form-stroke root-input",
+                "root-input",
+                leftIcon && "with-left-icon",
+                error && "errorInput",
                 className
               )}
             />
             {leftIcon && <span className="leftIcon">{leftIcon}</span>}
-            {rightIcon && (
-              <span className={bothIcons ? "bothIconsRight" : "rightIcon"}>
-                {rightIcon}
-              </span>
-            )}
+            {rightIcon && <span className="rightIcon">{rightIcon}</span>}
           </div>
           {error && <p className="errorMessage">{errorMsg}</p>}
         </div>

@@ -23,7 +23,6 @@ export const WithLeftIcon: Story = {
   args: {
     label: "Hi",
     placeholder: "Hello",
-    type: "password",
     leftIcon: (
       <svg
         width="20"
