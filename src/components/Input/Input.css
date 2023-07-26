@@ -101,7 +101,10 @@
   /* border-color: #ef4444; */
   outline-color: #ef4444;
 }
-
+.errorInput::placeholder {
+  /* border-color: #ef4444; */
+  color: #F87171;
+}
 .errorMessage {
   font-size: 0.875rem;
   line-height: 1.25rem;
