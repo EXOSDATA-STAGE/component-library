@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { DropdownContextProvider } from "./Dropdown.context";
 
 export interface DropdownProps {
   children?: React.ReactNode;
@@ -38,4 +39,17 @@ export default function Dropdown({
   };
 
   const toggleDropdown = () => (_opened ? close() : open());
+
+  return (
+    <DropdownContextProvider
+      value={{
+        opened: _opened,
+        toggleDropdown,
+        closeDropdown: close,
+        openDropdown: open,
+      }}
+    >
+      <div>{children}</div>
+    </DropdownContextProvider>
+  );
 }
