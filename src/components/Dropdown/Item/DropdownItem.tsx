@@ -6,7 +6,7 @@ export interface DropdownItemProps {
   icon?: React.ReactNode;
 }
 
-const DropdownItem = forwardRef<HTMLButtonElement, MenuItemProps>() => {
+const DropdownItem = forwardRef<HTMLButtonElement, DropdownItemProps>(props,ref) => {
   return <div></div>;
 };
 
