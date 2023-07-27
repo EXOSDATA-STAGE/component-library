@@ -7,7 +7,7 @@ import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { BiErrorCircle } from "react-icons/bi";
 import { MdAlternateEmail } from "react-icons/md";
 
-const inputVariants = cva("btn", {
+const inputVariants = cva("input", {
   variants: {
     size: {
       xs: ["input-xs"],
