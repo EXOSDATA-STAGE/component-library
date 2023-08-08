@@ -1,7 +1,6 @@
 import React, { forwardRef, useId, useState } from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
 import "./Input.css";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { BiErrorCircle } from "react-icons/bi";
@@ -50,10 +49,6 @@ const TextInput = forwardRef<HTMLInputElement, InputProps>(
     },
     ref
   ) => {
-    let bothIcons = false;
-    if (leftIcon && rightIcon) {
-      bothIcons = true;
-    }
     const id = useId();
     const [isPassword, setIsPassword] = useState(type === "password");
     const [inputType, setInputType] = useState(type);
