@@ -15,7 +15,6 @@ export const Default: Story = {
     label: "Hello",
     placeholder: "Hello",
     required: true,
-    disabled: true,
   },
 };
 
@@ -149,7 +148,7 @@ export const BothIcons: Story = {
 export const ErrorInput: Story = {
   args: {
     label: "Email",
-    placeholder: "Youssef Zahi",
+    placeholder: "Enter your email",
     type: "email",
     error: true,
     errorMsg: "Invalid Email address",
