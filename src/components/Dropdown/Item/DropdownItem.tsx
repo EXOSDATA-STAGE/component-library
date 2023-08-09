@@ -1,4 +1,4 @@
-import React, {  forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 export interface DropdownItemProps {
   children?: React.ReactNode;
@@ -6,8 +6,10 @@ export interface DropdownItemProps {
   icon?: React.ReactNode;
 }
 
-const DropdownItem = forwardRef<HTMLButtonElement, DropdownItemProps>(props,ref) => {
-  return <div></div>;
-};
+const DropdownItem = forwardRef<HTMLElement, DropdownItemProps>(
+  ({ children }, ref) => {
+    return <div>{children}</div>;
+  }
+);
 
 export default DropdownItem;
