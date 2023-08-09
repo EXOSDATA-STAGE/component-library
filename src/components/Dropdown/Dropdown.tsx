@@ -1,55 +1,67 @@
-import React, { useState } from "react";
-import { DropdownContextProvider } from "./Dropdown.context";
+import * as React from "react";
+import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
+import "./Dropdown.css";
+import { cn } from "@/lib/utils";
 
-export interface DropdownProps {
-  children?: React.ReactNode;
+const DropdownMenu = DropdownMenuPrimitive.Root;
 
-  opened?: boolean;
+const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 
-  onChange?(opened: boolean): void;
+const DropdownMenuGroup = DropdownMenuPrimitive.Group;
 
-  onOpen?(): void;
+const DropdownMenuContent = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Content>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Content>
+>(({ className, sideOffset = 4, ...props }, ref) => (
+  <DropdownMenuPrimitive.Portal>
+    <DropdownMenuPrimitive.Content
+      ref={ref}
+      sideOffset={sideOffset}
+      className={cn("dropdown-content", className)}
+      {...props}
+    />
+  </DropdownMenuPrimitive.Portal>
+));
 
-  onClose?(): void;
+const DropdownMenuItem = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Item>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item>
+>(({ className, ...props }, ref) => (
+  <DropdownMenuPrimitive.Item
+    ref={ref}
+    className={cn("dropdown-item", className)}
+    {...props}
+  />
+));
 
-  closeOnEscape?: boolean;
+const DropdownMenuLabel = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Label>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label>
+>(({ className, ...props }, ref) => (
+  <DropdownMenuPrimitive.Label
+    ref={ref}
+    className={cn("dropdown-label", className)}
+    {...props}
+  />
+));
 
-  className?: string;
-}
+const DropdownMenuSeparator = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
+>(({ className, ...props }, ref) => (
+  <DropdownMenuPrimitive.Separator
+    ref={ref}
+    className={cn("dropdown-separator", className)}
+    {...props}
+  />
+));
 
-export default function Dropdown({
-  children,
-  opened,
-  onChange,
-  onOpen,
-  onClose,
-  closeOnEscape = true,
-  className,
-}: DropdownProps) {
-  const [_opened, setOpened] = useState(false);
-
-  const close = () => {
-    setOpened(false);
-    _opened && onClose?.();
-  };
-
-  const open = () => {
-    setOpened(true);
-    !_opened && onOpen?.();
-  };
-
-  const toggleDropdown = () => (_opened ? close() : open());
-
-  return (
-    <DropdownContextProvider
-      value={{
-        opened: _opened,
-        toggleDropdown,
-        closeDropdown: close,
-        openDropdown: open,
-      }}
-    >
-      <div>{children}</div>
-    </DropdownContextProvider>
-  );
-}
+export {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuGroup,
+};
