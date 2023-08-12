@@ -64,7 +64,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
                 <TableRow key={headerGroup.id} className="table-row ">
                   {headerGroup.headers.map((header) => {
                     return (
-                      <TableHead key={header.id}>
+                      <TableHead key={header.id} className="table-head">
                         {header.isPlaceholder
                           ? null
                           : flexRender(
@@ -77,7 +77,7 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
                 </TableRow>
               ))}
             </TableHeader>
-            <TableBody>
+            <TableBody className="table-body">
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
                   <TableRow key={row.id} className="table-row-body">
