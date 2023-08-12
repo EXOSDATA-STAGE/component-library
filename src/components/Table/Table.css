@@ -1,33 +1,19 @@
 .table-container{
     border-radius: 9999px; 
-border-width: 0; 
-outline-width: 0px; 
+    border-width: 0; 
+    outline-width: 0px; 
+    font-family: sans-serif;
 }
 .table{
     border-radius: 9999px; 
     border-top-width: 1px; 
     border-color: #D1D5DB; 
     min-width: 100%; 
-    table-layout: fixed;     
+    table-layout: fixed;    
+    border-collapse: collapse; 
 }
 .table-header{
-    background-color: #F9FAFB; 
-
-}
-.table-header:hover {
-  background-color: #e5e7eb;
-}
-.table-head{
-    padding-left: 0.75rem;
-    padding-right: 0.75rem; 
-    padding-top: 0.875rem;
-    padding-bottom: 0.875rem; 
-    font-size: 0.875rem;
-    line-height: 1.25rem; 
-    font-weight: 600; 
-    text-align: left; 
-    color: #111827; 
-
+    background-color: #F7F7F7;
 }
 
 .table-body{
@@ -59,4 +45,6 @@ outline-width: 0px;
     line-height: 1.25rem; 
     color: #6B7280; 
     white-space: nowrap; 
+    border-bottom: 1px solid #000000;
+
 }
