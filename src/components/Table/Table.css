@@ -1,28 +1,27 @@
-.table-container{
-    border-radius: 9999px; 
-border-width: 0; 
-outline-width: 0px; 
+.table-container {
+  border-radius: 9999px;
+  border-width: 0;
+  outline-width: 0px;
 }
-.table{
-    border-radius: 9999px; 
+.table {
+  border-radius: 9999px;
 }
-.table-header{
-    background-color: #F7F7F7;
+.table-header {
+  background-color: #f7f7f7;
 }
-.table-header:hover{
-    background-color: #E5E7EB; 
+.table-header:hover {
+  background-color: #e5e7eb;
 }
-.table-row{
-    color: #4C4C4C;
+.table-row {
+  color: #4c4c4c;
 }
-.table-row-body{
-    color: #808080;
+.table-row-body {
+  color: #808080;
 }
-.table-row-body:hover{
-    background-color: #F3F4F6; 
+.table-row-body:hover {
+  background-color: #f3f4f6;
 }
-.table-cell{
-    height: 6rem; 
-text-align: center; 
-
+.table-cell {
+  height: 6rem;
+  text-align: center;
 }
