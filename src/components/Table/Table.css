@@ -2,6 +2,7 @@
     border-radius: 9999px; 
     border-width: 0; 
     outline-width: 0px; 
+    font-family: sans-serif;
 }
 .table{
     border-radius: 9999px; 
@@ -12,23 +13,7 @@
     border-collapse: collapse; 
 }
 .table-header{
-    background-color: #ffffff; 
-
-}
-.table-header:hover{
-    background-color: #E5E7EB; 
-}
-.table-head{
-    padding-left: 0.75rem;
-    padding-right: 0.75rem; 
-    padding-top: 0.875rem;
-    padding-bottom: 0.875rem; 
-    font-size: 0.875rem;
-    line-height: 1.25rem; 
-    font-weight: 600; 
-    text-align: left; 
-    color: #111827; 
-
+    background-color: #F7F7F7;
 }
 
 .table-body{
