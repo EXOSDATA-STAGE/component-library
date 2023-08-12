@@ -1,6 +1,6 @@
-import * as React from "react";
 import { cn } from "@/lib/utils";
-import "./table";
+import * as React from "react";
+import "./table.css";
 
 const DataTable = React.forwardRef<
   HTMLTableElement,
@@ -16,11 +16,7 @@ const TableHeader = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead
-    ref={ref}
-    className={cn("[&_tr]:border-b table-head", className)}
-    {...props}
-  />
+  <thead ref={ref} className={cn("table-head", className)} {...props} />
 ));
 TableHeader.displayName = "TableHeader";
 
@@ -28,11 +24,7 @@ const TableBody = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <tbody
-    ref={ref}
-    className={cn("[&_tr:last-child]:border-0", className)}
-    {...props}
-  />
+  <tbody ref={ref} className={cn("table-body", className)} {...props} />
 ));
 TableBody.displayName = "TableBody";
 
@@ -64,11 +56,7 @@ const TableHead = React.forwardRef<
   HTMLTableCellElement,
   React.ThHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, ref) => (
-  <th
-    ref={ref}
-    className={cn("table-head [&:has([role=checkbox])]:pr-0", className)}
-    {...props}
-  />
+  <th ref={ref} className={cn("table-head", className)} {...props} />
 ));
 TableHead.displayName = "TableHead";
 
@@ -76,11 +64,7 @@ const TableCell = React.forwardRef<
   HTMLTableCellElement,
   React.TdHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, ref) => (
-  <td
-    ref={ref}
-    className={cn("table-cell [&:has([role=checkbox])]:pr-0", className)}
-    {...props}
-  />
+  <td ref={ref} className={cn("table-cell", className)} {...props} />
 ));
 TableCell.displayName = "TableCell";
 
@@ -94,11 +78,11 @@ TableCaption.displayName = "TableCaption";
 
 export {
   DataTable,
-  TableHeader,
   TableBody,
+  TableCaption,
+  TableCell,
   TableFooter,
   TableHead,
+  TableHeader,
   TableRow,
-  TableCell,
-  TableCaption,
 };

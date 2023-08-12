@@ -2,7 +2,6 @@
     border-radius: 9999px; 
     border-width: 0; 
     outline-width: 0px; 
-    font-family: sans-serif;
 }
 .table{
     border-radius: 9999px; 
@@ -42,11 +41,15 @@
 .table-row{
     color: #4C4C4C;
 }
-.table-row-body{
-    color: #808080;
+.table-row-body {
+  color: #808080;
 }
-.table-row-body:hover{
-    background-color: #F3F4F6; 
+.table-row-body:hover {
+  background-color: #f3f4f6;
+}
+.table-cell {
+  height: 6rem;
+  text-align: center;
 }
 .table-cell{
     padding-left: 0.75rem;
