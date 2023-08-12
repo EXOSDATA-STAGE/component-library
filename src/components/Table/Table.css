@@ -32,10 +32,7 @@
 .table-row-body:hover {
   background-color: #f3f4f6;
 }
-.table-cell {
-  height: 6rem;
-  text-align: center;
-}
+
 .table-cell{
     padding-left: 0.75rem;
     padding-right: 0.75rem; 
