@@ -1,0 +1,28 @@
+.table-container{
+    border-radius: 9999px; 
+border-width: 0; 
+outline-width: 0px; 
+}
+.table{
+    border-radius: 9999px; 
+}
+.table-header{
+    background-color: #F7F7F7;
+}
+.table-header:hover{
+    background-color: #E5E7EB; 
+}
+.table-row{
+    color: #4C4C4C;
+}
+.table-row-body{
+    color: #808080;
+}
+.table-row-body:hover{
+    background-color: #F3F4F6; 
+}
+.table-cell{
+    height: 6rem; 
+text-align: center; 
+
+}
