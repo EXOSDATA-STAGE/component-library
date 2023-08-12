@@ -12,23 +12,7 @@
     table-layout: fixed;     
 }
 .table-header{
-    background-color: #F9FAFB; 
-
-}
-.table-header:hover{
-    background-color: #E5E7EB; 
-}
-.table-head{
-    padding-left: 0.75rem;
-    padding-right: 0.75rem; 
-    padding-top: 0.875rem;
-    padding-bottom: 0.875rem; 
-    font-size: 0.875rem;
-    line-height: 1.25rem; 
-    font-weight: 600; 
-    text-align: left; 
-    color: #111827; 
-
+    background-color: #F7F7F7;
 }
 
 .table-body{
@@ -41,11 +25,15 @@
 .table-row{
     color: #4C4C4C;
 }
-.table-row-body{
-    color: #808080;
+.table-row-body {
+  color: #808080;
 }
-.table-row-body:hover{
-    background-color: #F3F4F6; 
+.table-row-body:hover {
+  background-color: #f3f4f6;
+}
+.table-cell {
+  height: 6rem;
+  text-align: center;
 }
 .table-cell{
     padding-left: 0.75rem;

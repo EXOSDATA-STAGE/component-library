@@ -1,6 +1,6 @@
-import * as React from "react";
 import { cn } from "@/lib/utils";
-import "./table";
+import * as React from "react";
+import "./table.css";
 
 const DataTable = React.forwardRef<
   HTMLTableElement,
@@ -56,11 +56,7 @@ const TableHead = React.forwardRef<
   HTMLTableCellElement,
   React.ThHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, ref) => (
-  <th
-    ref={ref}
-    className={cn("table-head [&:has([role=checkbox])]:pr-0", className)}
-    {...props}
-  />
+  <th ref={ref} className={cn("table-head", className)} {...props} />
 ));
 TableHead.displayName = "TableHead";
 
@@ -68,11 +64,7 @@ const TableCell = React.forwardRef<
   HTMLTableCellElement,
   React.TdHTMLAttributes<HTMLTableCellElement>
 >(({ className, ...props }, ref) => (
-  <td
-    ref={ref}
-    className={cn("table-cell [&:has([role=checkbox])]:pr-0", className)}
-    {...props}
-  />
+  <td ref={ref} className={cn("table-cell", className)} {...props} />
 ));
 TableCell.displayName = "TableCell";
 
@@ -86,11 +78,11 @@ TableCaption.displayName = "TableCaption";
 
 export {
   DataTable,
-  TableHeader,
   TableBody,
+  TableCaption,
+  TableCell,
   TableFooter,
   TableHead,
+  TableHeader,
   TableRow,
-  TableCell,
-  TableCaption,
 };
