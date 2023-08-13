@@ -24,7 +24,7 @@ const inputVariants = cva("input", {
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: React.ReactNode;
-  label: string;
+  label?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
   type?: "text" | "password" | "number" | "email";

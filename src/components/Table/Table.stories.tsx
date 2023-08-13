@@ -104,5 +104,6 @@ export const Default: Story = {
     columns: columns,
     data: data,
     pageSize: 7,
+    filterColumns: ["userName", "phone", "status"],
   },
 };

@@ -18,6 +18,7 @@ import {
   TableRow,
 } from "./ui/table";
 import { useMemo, useState } from "react";
+import { DataTableToolbar } from "./table-components/TableToolbar";
 
 type COLUMNST = {
   accessorKey: string;
@@ -28,9 +29,10 @@ interface TableProps {
   columns: COLUMNST[];
   data: any;
   pageSize: number;
+  filterColumns: string[];
 }
 export const Table = forwardRef<HTMLTableElement, TableProps>(
-  ({ data, columns, pageSize }, ref) => {
+  ({ data, columns, pageSize, filterColumns }, ref) => {
     const [columnFilters, setColumnFilters] = useState([]);
     const cols = useMemo(() => columns, []);
 
@@ -53,9 +55,9 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
 
     return (
       <div>
-        {/* <div>
-        <DataTableToolbar table={table} />
-      </div> */}
+        <div>
+          <DataTableToolbar table={table} columns={filterColumns} />
+        </div>
 
         <div className="table-container">
           <DataTable className="table" ref={ref}>

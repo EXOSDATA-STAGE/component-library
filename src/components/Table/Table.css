@@ -25,6 +25,11 @@
 }
 .table-row{
     color: #4C4C4C;
+    border-bottom: 1px solid #072859 ;
+}
+.table-head{
+    font-weight: 500;
+    color: #393939;
 }
 .table-row-body {
   color: #808080;

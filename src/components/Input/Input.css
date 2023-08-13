@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .input-container {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -10,6 +14,7 @@
     width: 50%;
   }
 }
+
 @media (min-width: 1024px) {
   .input-container {
     width: 33.333333%;
@@ -24,6 +29,7 @@
   color: rgb(17 24 39);
   margin-bottom: 5px;
 }
+
 .root-input {
   appearance: none;
   background-color: white;
@@ -90,19 +96,24 @@
   cursor: pointer;
   margin-right: -10px;
 }
+
 .password-eye:hover {
   background-color: #f3f4f6;
 }
+
 .errorInput {
   outline: 1px solid #ef4444;
   color: #7f1d1d;
 }
+
 .errorInput:focus {
   outline-color: #ef4444;
 }
+
 .errorInput::placeholder {
   color: #f87171;
 }
+
 .errorMessage {
   font-size: 0.875rem;
   line-height: 1.25rem;
