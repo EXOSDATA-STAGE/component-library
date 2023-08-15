@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,58 +7,80 @@ import {
   DropdownMenuTrigger,
   DropdownMenuLabel,
 } from "@/components/Dropdown";
-import { BsSearch, BsFilterCircle } from "react-icons/bs";
+import Input from "@/components/Input";
+import { BsSearch, BsFilterCircle, BsCheckLg } from "react-icons/bs";
 import "./Search.css";
+import Button from "@/components/Button";
+import { ColumnDefTemplate, HeaderContext } from "@tanstack/react-table";
+import uuid from "react-uuid";
 
 interface SearchProps {
-  inputValue: (() => string) | undefined;
-  setFilterValue: (value: string) => void;
-  setColumn: (value: string) => void;
-  filterColumns: string[];
+  inputValue: (() => unknown) | undefined;
+  setFilterValue: ((updater: any) => void) | undefined;
+  setColumnIndex: (value: number) => void;
+  filterColumns:
+    | (
+        | ColumnDefTemplate<
+            HeaderContext<{ [x: string]: {} } & { [x: string]: {} }, unknown>
+          >
+        | undefined
+      )[]
+    | undefined;
+  selectedColumn: number;
 }
 
 const Search: React.FC<SearchProps> = ({
   inputValue,
   setFilterValue,
   filterColumns,
-  setColumn,
+  setColumnIndex,
+  selectedColumn,
 }) => {
   return (
     <div>
       <div className="container">
-        <div className="icon-container">
-          <BsSearch className="icon" aria-hidden="true" />
+        <div className="search-input-container">
+          <Input
+            type="text"
+            name="name"
+            id="name"
+            leftIcon={
+              <BsSearch className="icon" color="#9CA3AF" aria-hidden="true" />
+            }
+            value={inputValue ? inputValue() : ""}
+            onChange={(event) => setFilterValue(event.target.value)}
+            className="input"
+            placeholder="Search..."
+          />
         </div>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={inputValue ? inputValue() : ""}
-          onChange={(event) => setFilterValue(event.target.value)}
-          className="input"
-          placeholder="Search..."
-        />
-        <div className="rigth-icon-container ">
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <button>
-                <BsFilterCircle className="icon" aria-hidden="true" />
-              </button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent>
-              <DropdownMenuLabel>Columns</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {filterColumns.map((column) => (
-                <DropdownMenuItem
-                  key={column}
-                  onClick={(event) => setColumn(column)}
-                >
-                  {column}
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button>
+              <BsFilterCircle
+                className="icon"
+                color="#fff"
+                aria-hidden="true"
+              />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>Search By :</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            {filterColumns?.map((column, index) => (
+              <DropdownMenuItem
+                key={uuid()}
+                onClick={() => {
+                  setColumnIndex(index);
+                }}
+              >
+                {selectedColumn == index && (
+                  <BsCheckLg className="selected-icon" />
+                )}
+                {column}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </div>
   );

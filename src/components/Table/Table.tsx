@@ -7,7 +7,10 @@ import {
   useReactTable,
   getFilteredRowModel,
   ColumnDef,
+  SortingState,
+  getSortedRowModel,
 } from "@tanstack/react-table";
+import { ArrowUpDown } from "lucide-react";
 
 import {
   DataTable,
@@ -20,20 +23,32 @@ import {
 import { useMemo, useState } from "react";
 import { DataTableToolbar } from "./table-components/TableToolbar";
 
-type COLUMNST = {
-  accessorKey: string;
-  header: string;
-};
-
 interface TableProps {
-  columns: COLUMNST[];
+  columns: ColumnDef<unknown, any>[];
   data: any;
   pageSize: number;
   filterColumns: string[];
 }
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ data, columns, pageSize, filterColumns }, ref) => {
+    const [sorting, setSorting] = React.useState<SortingState>([]);
     const [columnFilters, setColumnFilters] = useState([]);
+    columns.map((column) => {
+      const header = column.header;
+      column.header = ({ column }) => {
+        return (
+          <div className="header">
+            {header ?? ""}
+            <ArrowUpDown
+              className="arrow-icon"
+              onClick={() =>
+                column.toggleSorting(column.getIsSorted() === "asc")
+              }
+            />
+          </div>
+        );
+      };
+    });
     const cols = useMemo(() => columns, []);
 
     const table = useReactTable({
@@ -46,15 +61,18 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
       },
       getCoreRowModel: getCoreRowModel(),
       getPaginationRowModel: getPaginationRowModel(),
-      // onColumnFiltersChange: setColumnFilters,
+      onColumnFiltersChange: setColumnFilters,
       getFilteredRowModel: getFilteredRowModel(),
+      onSortingChange: setSorting,
+      getSortedRowModel: getSortedRowModel(),
       state: {
         columnFilters,
+        sorting,
       },
     });
 
     return (
-      <div>
+      <div className="full-container">
         <div>
           <DataTableToolbar table={table} columns={filterColumns} />
         </div>

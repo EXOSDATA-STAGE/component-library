@@ -1,8 +1,8 @@
 .container {
-    position: relative;
-    margin-top: 0.25rem;
-    border-radius: 0.375rem;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
 .left-icon-container {
@@ -19,7 +19,16 @@
 .icon {
     width: 1.25rem;
     height: 1.25rem;
-    color: #9CA3AF;
+}
+
+.selected-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 5px;
+}
+
+.search-input-container {
+    padding: 0;
 }
 
 .input {
@@ -27,7 +36,9 @@
     padding-left: 2.5rem;
     border-radius: 0.375rem;
     border-color: #D1D5DB;
-    width: 100%;
+    width: 300px;
+    height: 40px;
+
 
     @media (min-width: 640px) {
         font-size: 0.875rem;
@@ -43,7 +54,7 @@
 
 .rigth-icon-container {
     display: flex;
-    position: absolute;
+    /* position: absolute; */
     top: 0;
     bottom: 0;
     right: 0;

@@ -1,52 +1,75 @@
-.table-container{
-    border-radius: 9999px; 
-    border-width: 0; 
-    outline-width: 0px; 
+.table-container {
+    border-radius: 9999px;
+    border-width: 0;
+    outline-width: 0px;
     font-family: sans-serif;
 }
-.table{
-    border-radius: 9999px; 
-    border-top-width: 1px; 
-    border-color: #D1D5DB; 
-    min-width: 100%; 
-    table-layout: fixed;    
-    border-collapse: collapse; 
+
+.table {
+    border-radius: 9999px;
+    border-top-width: 1px;
+    border-color: #D1D5DB;
+    min-width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
 }
-.table-header{
+
+.table-header {
     background-color: #F7F7F7;
 }
 
-.table-body{
+.table-body {
     border-top-width: 1px;
     border-bottom-width: 0px;
     border-color: rgb(229 231 235);
-    background-color: #ffffff; 
+    background-color: #ffffff;
 
 }
-.table-row{
+
+.table-row {
     color: #4C4C4C;
-    border-bottom: 1px solid #072859 ;
+    border-bottom: 1px solid #072859;
 }
-.table-head{
+
+.table-head {
     font-weight: 500;
     color: #393939;
 }
+
 .table-row-body {
-  color: #808080;
-}
-.table-row-body:hover {
-  background-color: #f3f4f6;
+    color: #808080;
 }
 
-.table-cell{
+.table-row-body:hover {
+    background-color: #f3f4f6;
+}
+
+.table-cell {
     padding-left: 0.75rem;
-    padding-right: 0.75rem; 
+    padding-right: 0.75rem;
     padding-top: 1rem;
-    padding-bottom: 1rem; 
+    padding-bottom: 1rem;
     font-size: 0.875rem;
-    line-height: 1.25rem; 
-    color: #6B7280; 
-    white-space: nowrap; 
+    line-height: 1.25rem;
+    color: #6B7280;
+    white-space: nowrap;
     border-bottom: 1px solid #000000;
 
+}
+
+.arrow-icon {
+    margin-left: 0.5rem;
+    width: 1rem;
+    height: 1rem;
+}
+
+.arrow-icon:hover {
+    cursor: pointer;
+    color: #353e4b;
+}
+
+.header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
