@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from "react";
-import { Dialog, Transition } from "@headlessui/react";
+import "@/styles/globals.css";
 import {
   Bars3Icon,
   CalendarIcon,
@@ -8,9 +7,8 @@ import {
   HomeIcon,
   InboxIcon,
   UsersIcon,
-  XMarkIcon,
 } from "@heroicons/react/24/outline";
-import "@/styles/globals.css";
+import React, { useState } from "react";
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },

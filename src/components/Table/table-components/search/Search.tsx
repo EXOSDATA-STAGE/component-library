@@ -1,31 +1,22 @@
-import React, { useState } from "react";
+import Button from "@/components/Button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuLabel,
 } from "@/components/Dropdown";
 import Input from "@/components/Input";
-import { BsSearch, BsFilterCircle, BsCheckLg } from "react-icons/bs";
+import React from "react";
+import { BsCheckLg, BsFilterCircle, BsSearch } from "react-icons/bs";
 import "./Search.css";
-import Button from "@/components/Button";
-import { ColumnDefTemplate, HeaderContext } from "@tanstack/react-table";
-import uuid from "react-uuid";
 
 interface SearchProps {
   inputValue: (() => unknown) | undefined;
   setFilterValue: ((updater: any) => void) | undefined;
   setColumnIndex: (value: number) => void;
-  filterColumns:
-    | (
-        | ColumnDefTemplate<
-            HeaderContext<{ [x: string]: {} } & { [x: string]: {} }, unknown>
-          >
-        | undefined
-      )[]
-    | undefined;
+  filterColumns: Array<string>;
   selectedColumn: number;
 }
 
@@ -47,8 +38,8 @@ const Search: React.FC<SearchProps> = ({
             leftIcon={
               <BsSearch className="icon" color="#9CA3AF" aria-hidden="true" />
             }
-            value={inputValue ? inputValue() : ""}
-            onChange={(event) => setFilterValue(event.target.value)}
+            value={(inputValue?.() as string) && ""}
+            onChange={(event) => setFilterValue?.(event.target.value)}
             className="input"
             placeholder="Search..."
           />
@@ -68,7 +59,7 @@ const Search: React.FC<SearchProps> = ({
             <DropdownMenuSeparator />
             {filterColumns?.map((column, index) => (
               <DropdownMenuItem
-                key={uuid()}
+                key={crypto.randomUUID()}
                 onClick={() => {
                   setColumnIndex(index);
                 }}

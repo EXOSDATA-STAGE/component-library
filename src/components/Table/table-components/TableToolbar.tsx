@@ -1,16 +1,11 @@
-import Search from "./search/Search";
-import React, { useState } from "react";
 import { Table } from "@tanstack/react-table";
-import { MdSouth } from "react-icons/md";
+import React, { useState } from "react";
+import Search from "./search/Search";
 
 interface DataTableToolbarProps {
-  table: Table<
-    {
-      [x: string]: {};
-    } & {
-      [x: string]: {};
-    }
-  >;
+  table: Table<{
+    [x: string]: {};
+  }>;
   columns: string[];
 }
 
@@ -20,27 +15,27 @@ export function DataTableToolbar({ table, columns }: DataTableToolbarProps) {
     .getHeaderGroups()
     .map((headerGroup) =>
       headerGroup.headers.map((header) => header.column.columnDef.header)
-    )[0];
+    )[0] as string[];
   const accessors =
     table
       .getHeaderGroups()
       .map((headerGroup) =>
-        headerGroup.headers.map((header) => header.column.columnDef.accessorKey)
+        headerGroup.headers.map(
+          (header) =>
+            (header.column.columnDef as { accessorKey: string }).accessorKey
+        )
       )[0] || [];
 
-  const inputValue = table.getColumn(accessors[columnIndex])?.getFilterValue;
-  console.log("inputValue", inputValue());
-  console.log("accessors", accessors[columnIndex]);
+  const inputValue = table.getColumn(accessors[columnIndex]!)?.getFilterValue;
 
-  const [isFiltered, setIsFiltred] = useState(false);
   return (
     <div className="my-4  flex items-center justify-between">
       <div className="flex items-center justify-between gap-4">
         <Search
           setFilterValue={
-            table.getColumn(accessors[columnIndex])?.setFilterValue
+            table.getColumn(accessors[columnIndex]!)?.setFilterValue
           }
-          inputValue={table.getColumn(accessors[columnIndex])?.getFilterValue}
+          inputValue={table.getColumn(accessors[columnIndex]!)?.getFilterValue}
           setColumnIndex={setColumnIndex}
           filterColumns={headers}
           selectedColumn={columnIndex}

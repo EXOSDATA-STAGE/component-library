@@ -9,6 +9,7 @@ import {
   ColumnDef,
   SortingState,
   getSortedRowModel,
+  ColumnFiltersState,
 } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 
@@ -23,8 +24,13 @@ import {
 import { useMemo, useState } from "react";
 import { DataTableToolbar } from "./table-components/TableToolbar";
 
-interface TableProps {
-  columns: ColumnDef<unknown, any>[];
+export interface TableProps {
+  columns: ColumnDef<
+    {
+      [x: string]: {};
+    },
+    any
+  >[];
   data: any;
   pageSize: number;
   filterColumns: string[];
@@ -32,13 +38,13 @@ interface TableProps {
 export const Table = forwardRef<HTMLTableElement, TableProps>(
   ({ data, columns, pageSize, filterColumns }, ref) => {
     const [sorting, setSorting] = React.useState<SortingState>([]);
-    const [columnFilters, setColumnFilters] = useState([]);
+    const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
     columns.map((column) => {
       const header = column.header;
       column.header = ({ column }) => {
         return (
           <div className="header">
-            {header ?? ""}
+            {(header as string) ?? ""}
             <ArrowUpDown
               className="arrow-icon"
               onClick={() =>
@@ -51,7 +57,9 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
     });
     const cols = useMemo(() => columns, []);
 
-    const table = useReactTable({
+    const table = useReactTable<{
+      [x: string]: {};
+    }>({
       data,
       columns: cols,
       initialState: {
@@ -102,15 +110,8 @@ export const Table = forwardRef<HTMLTableElement, TableProps>(
                 table.getRowModel().rows.map((row) => (
                   <TableRow key={row.id} className="table-row-body">
                     {row.getVisibleCells().map((cell) => {
-                      let hasMeta =
-                        cell.getContext().cell.column.columnDef.meta;
                       return (
-                        <TableCell
-                          key={cell.id}
-                          {...(hasMeta && {
-                            ...hasMeta.getCellContext(cell.getContext()),
-                          })}
-                        >
+                        <TableCell key={cell.id}>
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()

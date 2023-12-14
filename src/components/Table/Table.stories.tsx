@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
 import { Table } from "./Table";
+import { ColumnDef } from "@tanstack/react-table";
 
 const meta = {
   title: "Table",
@@ -104,7 +104,12 @@ const data = [
 ];
 export const Default: Story = {
   args: {
-    columns: columns,
+    columns: columns as ColumnDef<
+      {
+        [x: string]: {};
+      },
+      any
+    >[],
     data: data,
     pageSize: 7,
     filterColumns: ["userName", "phone", "status"],
